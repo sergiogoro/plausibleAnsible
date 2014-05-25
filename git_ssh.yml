@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+  - name: SSH | Find Git repo SSH host key
+    shell: ssh-keyscan {{ git_repo }}
+    register: git_repo_host_key
+    sudo_user: ec2-user
+
+  - name: SSH | Add Git repo host key to known_hosts file
+    lineinfile: create=yes dest=/home/ec2-user/.ssh/known_hosts line='{{ git_repo_host_key.stdout }}' state=present
+    sudo_user: prov

@@ -1,0 +1,26 @@
+---
+- hosts: all
+
+  tasks:
+#  - name: Clone dotFiles
+#    git:
+#      repo=git://github.com/sergiogoro/dotFiles.git
+#      dest=/home/{{ ansible_ssh_user }}/dotFiles
+#      accept_hostkey=yes
+
+  - name: Copy dotFiles from /home/{{ ansible_ssh_user }}/dotFiles to /home/{{ ansible_ssh_user }}
+
+    shell: cp  /home/{{ ansible_ssh_user }}/dotFiles/.* /home/{{ ansible_ssh_user }}/
+
+#    synchronize:
+#      src=/home/{{ ansible_ssh_user }}/dotFiles/
+#      dest=/home/{{ ansible_ssh_user }}/
+#
+#
+#  - name: cd to /home/ec2-user/ && pwd
+#    shell: cd /home/{{ ansible_ssh_user }}/dotFiles/ && wall `pwd`
+#
+
+  - name: wall Hi
+    shell: wall Hi
+

@@ -1,0 +1,31 @@
+---
+- hosts: all
+
+  tasks:
+  - name: Install VIM
+    sudo: yes
+    yum:
+      name=vim
+      state=latest
+
+
+#git:  >
+#        repo=git@github.com:sergiogoro/dotFiles.git
+#        dest=/home/${ansible_user_id}/
+#        accept_hostkey=yes
+#      sudo_user:  ec2-user
+#
+#    - name: Create .vimrc Symlink
+#      file: >
+#        src=/home/${ansible_user_id}/.vim/vimrc
+#        dest=/home/${ansible_user_id}/.vimrc
+#        state=symlink
+#
+#    - name: Compile and Install Command-T plugin
+#      command: >
+#        rake make
+#        chdir=/home/${ansible_user_id}/.vim/bundle/Command-T
+#        creates=/home/${ansible_user_id}/.vim/bundle/Command-T/command-t.recipe
+
+
+

@@ -1,0 +1,11 @@
+---
+- hosts: all
+
+  tasks:
+
+  - name: SSH | Find Git repo SSH host key    #WARNING: Doesn't check if it's already on the known_hosts file
+    shell: ssh-keyscan -H github.com >> /home/{{ ansible_ssh_user }}/.ssh/known_hosts
+
+# - name: SSH | Add Git repo host key to known_hosts file
+#   lineinfile: create=yes dest=/home/${ansible_user_id}/.ssh/known_hosts line='{{ git_repo_host_key.stdout }}' state=present
+#    sudo_user: ec2-user

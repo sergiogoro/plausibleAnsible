@@ -1,7 +1,8 @@
 ---
-- hosts:  localhost
+- hosts:  all
   tasks:
     - name: Install VIM
+      #yum: pkg=vim state=present
       apt: pkg=vim state=present
       sudo: yes
 
